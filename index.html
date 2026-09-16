@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James Lerner — Hand-built websites | LernerWorks</title>
+<meta name="description" content="James Lerner builds small, fast, hand-written websites: static HTML, structured data, and a real accessibility pass. No frameworks, no page builders.">
+<link rel="canonical" href="https://lernerworks.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LernerWorks">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="James Lerner — Hand-built websites | LernerWorks">
+<meta property="og:description" content="Small, fast, hand-written websites: static HTML, structured data, and a real accessibility pass. No frameworks, no page builders.">
+<meta property="og:url" content="https://lernerworks.com/">
+<meta property="og:image" content="https://lernerworks.com/images/og-lernerworks.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LernerWorks — hand-built websites by James Lerner">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="James Lerner — Hand-built websites | LernerWorks">
+<meta name="twitter:description" content="Small, fast, hand-written websites: static HTML, structured data, and a real accessibility pass.">
+<meta name="twitter:image" content="https://lernerworks.com/images/og-lernerworks.png">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14120F" media="(prefers-color-scheme: dark)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<!-- TODO(analytics): lernerworks.com has no analytics wired up. aragocorminerals.com
+     uses Plausible; to match, uncomment and confirm the script src with your account.
+<script defer data-domain="lernerworks.com" src="https://plausible.io/js/script.js"></script>
+-->
+
+<style>
+:root{
+  --paper:#FAF8F4;
+  --ink:#17140F;
+  --muted:#6B6355;
+  --rule:rgba(23,20,15,.16);
+  --rule-strong:rgba(23,20,15,.42);
+  --accent:#9C4A21;
+  --accent-soft:rgba(156,74,33,.10);
+  --gutter:clamp(20px,5vw,64px);
+  --measure:1140px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#14120F;
+    --ink:#F1ECE3;
+    --muted:#A79E8E;
+    --rule:rgba(241,236,227,.18);
+    --rule-strong:rgba(241,236,227,.45);
+    --accent:#E08A55;
+    --accent-soft:rgba(224,138,85,.14);
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:clamp(1rem,.96rem + .18vw,1.0625rem);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{margin:0;font-weight:400;line-height:1.08;letter-spacing:-.015em}
+p{margin:0}
+a{color:inherit}
+
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:3px;
+}
+
+.skip{
+  position:absolute;left:-9999px;top:0;
+  background:var(--ink);color:var(--paper);
+  padding:12px 18px;z-index:100;text-decoration:none;
+  font-size:.875rem;
+}
+.skip:focus{left:var(--gutter);top:12px}
+
+.wrap{width:100%;max-width:var(--measure);margin-inline:auto;padding-inline:var(--gutter)}
+
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.75rem;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ---------- header ---------- */
+.site-head{padding-block:clamp(22px,3vw,34px)}
+.site-head .wrap{
+  display:flex;flex-wrap:wrap;gap:14px 28px;
+  align-items:baseline;justify-content:space-between;
+}
+.mark{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:1.5rem;letter-spacing:-.01em;
+  text-decoration:none;
+}
+.mark span{color:var(--accent)}
+.site-nav{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline}
+.site-nav a{
+  font-size:.9375rem;text-decoration:none;color:var(--muted);
+  padding:4px 0;border-bottom:1px solid transparent;
+}
+.site-nav a:hover{color:var(--ink);border-bottom-color:var(--rule-strong)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(40px,8vw,104px) clamp(48px,8vw,110px)}
+.hero h1{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(2.75rem,1.6rem + 5.2vw,5.25rem);
+  margin-block:clamp(18px,2.4vw,26px) 0;
+  max-width:16ch;
+}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.lede{
+  margin-top:clamp(20px,2.6vw,30px);
+  max-width:56ch;
+  font-size:clamp(1.0625rem,1rem + .38vw,1.3125rem);
+  line-height:1.55;
+  color:var(--muted);
+}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(28px,3.6vw,42px)}
+.btn{
+  display:inline-block;
+  font-size:.9375rem;font-weight:500;
+  padding:13px 24px;border-radius:999px;
+  text-decoration:none;border:1px solid var(--ink);
+  transition:background-color .16s ease,color .16s ease;
+}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--accent-soft)}
+
+/* ---------- section furniture ---------- */
+.section{padding-block:clamp(48px,7vw,92px);border-top:1px solid var(--rule)}
+.section-head{
+  display:flex;flex-wrap:wrap;gap:10px 28px;
+  align-items:baseline;justify-content:space-between;
+  margin-bottom:clamp(30px,4vw,48px);
+}
+.section-head h2{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(1.875rem,1.4rem + 1.9vw,2.875rem);
+}
+.section-note{max-width:44ch;color:var(--muted);font-size:.9375rem}
+
+/* ---------- work index ---------- */
+.work-list{list-style:none;margin:0;padding:0}
+.work-item{border-top:1px solid var(--rule)}
+.work-item:first-child{border-top:1px solid var(--rule-strong)}
+.work-item:last-child{border-bottom:1px solid var(--rule)}
+.work-grid{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) minmax(0,.9fr);
+  gap:8px clamp(20px,3.4vw,52px);
+  align-items:start;
+  padding-block:clamp(26px,3.4vw,40px);
+}
+.work-num{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.75rem;color:var(--muted);padding-top:.7em;
+}
+.work-title{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(1.625rem,1.3rem + 1.3vw,2.25rem);
+}
+.work-title a{text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+.work-title a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.work-domain{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.8125rem;color:var(--muted);
+  margin-top:8px;overflow-wrap:anywhere;
+}
+.work-body{color:var(--muted);margin-top:14px;max-width:52ch}
+.work-meta{display:flex;flex-direction:column;gap:12px;padding-top:.35em}
+.tag{
+  display:inline-flex;align-items:center;gap:7px;
+  align-self:start;
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6875rem;letter-spacing:.09em;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;border:1px solid var(--rule-strong);
+  color:var(--muted);white-space:nowrap;
+}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.tag-live{color:var(--accent);border-color:var(--accent)}
+.tag-wip{color:var(--muted)}
+.tag-slot{opacity:.75}
+.work-specs{
+  list-style:none;margin:0;padding:0;
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.75rem;line-height:1.85;color:var(--muted);
+}
+
+/* ---------- spec table ---------- */
+.table-scroll{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  border-top:1px solid var(--rule-strong);
+}
+.table-scroll:focus-visible{outline-offset:0}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:.875rem}
+caption{
+  text-align:left;color:var(--muted);font-size:.875rem;
+  padding-bottom:16px;
+}
+th,td{
+  text-align:left;vertical-align:top;
+  padding:15px 22px 15px 0;
+  border-bottom:1px solid var(--rule);
+}
+th:last-child,td:last-child{padding-right:0}
+thead th{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6875rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);
+  padding-block:14px;
+}
+tbody th{
+  font-weight:500;color:var(--ink);
+  white-space:nowrap;
+}
+tbody td{color:var(--muted)}
+.table-hint{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-top:14px;
+}
+@media (min-width:860px){.table-hint{display:none}}
+
+/* ---------- about ---------- */
+.about-grid{
+  display:grid;
+  grid-template-columns:minmax(0,320px) minmax(0,1fr);
+  gap:clamp(26px,4vw,64px);
+  align-items:start;
+}
+.photo{
+  margin:0;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  overflow:hidden;
+  background:var(--accent-soft);
+}
+.photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.photo figcaption{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6875rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);padding:11px 14px;border-top:1px solid var(--rule);
+}
+.about-body{display:flex;flex-direction:column;gap:18px;max-width:58ch}
+.about-body p{color:var(--muted)}
+.about-body p:first-child{
+  color:var(--ink);
+  font-size:clamp(1.125rem,1.04rem + .4vw,1.375rem);
+  line-height:1.5;
+}
+
+/* ---------- contact ---------- */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));
+  gap:clamp(24px,3.4vw,48px);
+  border-top:1px solid var(--rule-strong);
+  padding-top:clamp(26px,3.4vw,40px);
+}
+.contact-block h3{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6875rem;font-weight:500;
+  letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+}
+.contact-line{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(1.375rem,1.2rem + .8vw,1.875rem);
+  overflow-wrap:anywhere;
+}
+.contact-line a{text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+.contact-line a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.contact-sub{font-size:.875rem;color:var(--muted);margin-top:10px}
+
+/* ---------- footer ---------- */
+.site-foot{
+  border-top:1px solid var(--rule);
+  padding-block:clamp(26px,3.4vw,40px) clamp(34px,4vw,56px);
+}
+.site-foot .wrap{
+  display:flex;flex-wrap:wrap;gap:10px 28px;
+  align-items:baseline;justify-content:space-between;
+}
+.site-foot p{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6875rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .work-grid{grid-template-columns:auto minmax(0,1fr)}
+  .work-meta{grid-column:2;flex-direction:row;flex-wrap:wrap;gap:10px 20px;padding-top:6px}
+  .about-grid{grid-template-columns:minmax(0,1fr)}
+  .photo{max-width:300px}
+}
+@media (max-width:560px){
+  .work-grid{grid-template-columns:minmax(0,1fr);gap:4px}
+  .work-num{padding-top:0}
+  .work-meta{grid-column:1}
+  .site-nav{gap:8px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+@media (min-width:861px){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="/">Lerner<span>Works</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#specs">Specs</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Independent web practice</p>
+      <h1>Hand-built websites that <em>outlast</em> their rebuild.</h1>
+      <p class="lede">I'm James Lerner. I design and build small, fast websites by hand — static HTML and CSS, structured data that search engines can actually read, and an accessibility pass on every page. No frameworks, no page builders, nothing that needs replacing in three years.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#work">See the work</a>
+        <a class="btn btn-ghost" href="#contact">Start a project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p class="section-note">Three projects, each a single static build deployed straight from git.</p>
+      </div>
+
+      <ol class="work-list">
+        <li class="work-item">
+          <div class="work-grid">
+            <p class="work-num">01</p>
+            <div>
+              <h3 class="work-title"><a href="https://www.aragocorminerals.com/">AragoCor Minerals</a></h3>
+              <p class="work-domain">aragocorminerals.com</p>
+              <p class="work-body">A bulk-minerals supplier with one product and twelve application markets. The site classifies oolitic aragonite by grade and mesh, carries the technical data procurement teams ask for before they'll quote, and publishes Organization and FAQ structured data so those specifications surface in search.</p>
+            </div>
+            <div class="work-meta">
+              <span class="tag tag-live">Live</span>
+              <ul class="work-specs">
+                <li>Static build</li>
+                <li>Google Fonts</li>
+                <li>Plausible analytics</li>
+                <li>Schema.org JSON-LD</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="work-item">
+          <div class="work-grid">
+            <p class="work-num">02</p>
+            <div>
+              <h3 class="work-title"><a href="https://townofniwot.com/">Town of Niwot</a></h3>
+              <p class="work-domain">townofniwot.com</p>
+              <p class="work-body">An independent community guide for Niwot, Colorado — events, business directory, resident resources, and coverage of the November 2026 incorporation election. Self-hosted fonts keep it fast on rural connections; Place and FAQ structured data put the practical answers in front of people searching for them.</p>
+            </div>
+            <div class="work-meta">
+              <span class="tag tag-wip">In progress</span>
+              <ul class="work-specs">
+                <li>Static build</li>
+                <li>Self-hosted fonts</li>
+                <li>Place + FAQ schema</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <!-- TODO(james): third case study — replace the placeholder copy below with the
+             real project, or delete this whole <li> to ship a two-project index. -->
+        <li class="work-item">
+          <div class="work-grid">
+            <p class="work-num">03</p>
+            <div>
+              <h3 class="work-title">Third project</h3>
+              <p class="work-domain">domain to come</p>
+              <p class="work-body">Placeholder. Tell me which project belongs here and what it needed to do, and I'll write this entry to match the two above.</p>
+            </div>
+            <div class="work-meta">
+              <span class="tag tag-slot">Slot open</span>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="specs">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How they're built</h2>
+        <p class="section-note">Same approach every time. The differences are choices the project asked for, not defaults a tool imposed.</p>
+      </div>
+
+      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="specs-caption">
+        <table>
+          <caption id="specs-caption">Build specifications by project</caption>
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Status</th>
+              <th scope="col">Stack</th>
+              <th scope="col">Type</th>
+              <th scope="col">Fonts</th>
+              <th scope="col">Analytics</th>
+              <th scope="col">Structured data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">AragoCor Minerals</th>
+              <td>Live</td>
+              <td>Static HTML/CSS/JS</td>
+              <td>B2B supplier</td>
+              <td>Google Fonts</td>
+              <td>Plausible</td>
+              <td>Organization, FAQ</td>
+            </tr>
+            <tr>
+              <th scope="row">Town of Niwot</th>
+              <td>In progress</td>
+              <td>Static HTML/CSS/JS</td>
+              <td>Community guide</td>
+              <td>Self-hosted</td>
+              <td>None</td>
+              <td>Place, FAQ, WebSite</td>
+            </tr>
+            <tr>
+              <th scope="row">Third project</th>
+              <td>Slot open</td>
+              <td>&mdash;</td>
+              <td>&mdash;</td>
+              <td>&mdash;</td>
+              <td>&mdash;</td>
+              <td>&mdash;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-hint">Scroll the table sideways &rarr;</p>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <!-- TODO(james): swap in the real headshot. Drop the file at images/headshot.jpg
+             and change the src below. Portrait crop, 4:5, at least 800x1000. -->
+        <figure class="photo">
+          <img src="images/headshot.svg" width="800" height="1000" alt="Placeholder portrait — headshot to come">
+          <figcaption>Placeholder &mdash; headshot to come</figcaption>
+        </figure>
+        <div class="about-body">
+          <p>I work solo, directly with the person who owns the thing I'm building.</p>
+          <p>No account layer, no handoff to a team you haven't met, and no surprise when something needs changing — you email me and I change it. Most of what I build is static: HTML and CSS written by hand, versioned in git, deployed on push. It loads fast because there isn't much of it.</p>
+          <p>That approach suits a particular kind of client — one who wants a site that works, reads well, and stays cheap to keep online, rather than a platform that needs feeding. If your project needs a database and a login, I'll tell you so and point you somewhere better.</p>
+          <p>Based in Colorado. Available for new work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Start a project</h2>
+        <p class="section-note">Tell me what you're building and roughly when you need it. I'll tell you honestly whether I'm the right fit.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-block">
+          <h3>Phone</h3>
+          <!-- TODO(james): placeholder. 555-01xx is the reserved fiction range, so it
+               cannot ring a real person. Replace the href and the visible text. -->
+          <p class="contact-line"><a href="tel:+15555550100" data-placeholder="true">(555) 555-0100</a></p>
+          <p class="contact-sub">Placeholder number &mdash; send me the real one.</p>
+        </div>
+
+        <div class="contact-block">
+          <h3>Book a call</h3>
+          <!-- TODO(james): placeholder booking URL. Replace with your real scheduling link. -->
+          <p class="contact-line"><a href="https://cal.com/REPLACE-ME" data-placeholder="true">Pick a time</a></p>
+          <p class="contact-sub">Twenty minutes, no pitch.</p>
+        </div>
+
+        <div class="contact-block">
+          <h3>Location</h3>
+          <p class="contact-line">Colorado</p>
+          <p class="contact-sub">Working remotely with clients anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>&copy; 2026 LernerWorks</p>
+    <p>Hand-built. No framework.</p>
+  </div>
+</footer>
+</body>
+</html>
