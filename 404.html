@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — LernerWorks</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14120F" media="(prefers-color-scheme: dark)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --paper:#FAF8F4; --ink:#17140F; --muted:#6B6355;
+  --rule-strong:rgba(23,20,15,.42); --accent:#9C4A21; --accent-soft:rgba(156,74,33,.10);
+  --gutter:clamp(20px,5vw,64px);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#14120F; --ink:#F1ECE3; --muted:#A79E8E;
+    --rule-strong:rgba(241,236,227,.45); --accent:#E08A55; --accent-soft:rgba(224,138,85,.14);
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;
+  background:var(--paper);color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:clamp(1rem,.96rem + .18vw,1.0625rem);line-height:1.6;
+  display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{width:100%;max-width:1140px;margin-inline:auto;padding-inline:var(--gutter)}
+.site-head{padding-block:clamp(22px,3vw,34px)}
+.mark{font-family:"Instrument Serif",Georgia,serif;font-size:1.5rem;letter-spacing:-.01em;text-decoration:none}
+.mark span{color:var(--accent)}
+main{flex:1;display:flex;align-items:center;padding-block:clamp(48px,10vw,120px)}
+.code{
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.75rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+}
+h1{
+  font-family:"Instrument Serif",Georgia,serif;font-weight:400;
+  font-size:clamp(2.5rem,1.6rem + 4.4vw,4.5rem);line-height:1.08;letter-spacing:-.015em;
+  margin:clamp(16px,2.2vw,24px) 0 0;max-width:18ch;
+}
+h1 em{font-style:italic;color:var(--accent)}
+p.lede{margin:clamp(18px,2.4vw,26px) 0 0;max-width:52ch;color:var(--muted);
+  font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);line-height:1.55}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(26px,3.4vw,40px)}
+.btn{display:inline-block;font-size:.9375rem;font-weight:500;padding:13px 24px;
+  border-radius:999px;text-decoration:none;border:1px solid var(--ink);
+  transition:background-color .16s ease,color .16s ease}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--accent-soft)}
+.site-foot{padding-block:clamp(26px,3.4vw,40px)}
+.site-foot p{margin:0;font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6875rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap"><a class="mark" href="/">Lerner<span>Works</span></a></div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="code">Error 404</p>
+    <h1>That page <em>doesn't</em> exist.</h1>
+    <p class="lede">The link may be out of date, or the address mistyped. The site is a single page &mdash; everything lives on the home page.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/">Back to the home page</a>
+      <a class="btn btn-ghost" href="/#contact">Get in touch</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap"><p>&copy; 2026 LernerWorks</p></div>
+</footer>
+</body>
+</html>
