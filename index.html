@@ -326,6 +326,101 @@ tbody td{color:var(--muted)}
 }
 @media (min-width:861px){html{scroll-behavior:smooth}}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lernerworks.com/#organization",
+      "name": "LernerWorks",
+      "url": "https://lernerworks.com/",
+      "description": "Independent web practice building small, fast, hand-written static websites.",
+      "telephone": "+1-949-205-9056",
+      "founder": {
+        "@id": "https://lernerworks.com/#james"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "CO",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://lernerworks.com/#james",
+      "name": "James Lerner",
+      "url": "https://lernerworks.com/",
+      "jobTitle": "Web designer and developer",
+      "telephone": "+1-949-205-9056",
+      "worksFor": {
+        "@id": "https://lernerworks.com/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "CO",
+        "addressCountry": "US"
+      },
+      "knowsAbout": [
+        "Static site development",
+        "Web accessibility",
+        "Structured data",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lernerworks.com/#website",
+      "url": "https://lernerworks.com/",
+      "name": "LernerWorks",
+      "publisher": {
+        "@id": "https://lernerworks.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://lernerworks.com/#webpage",
+      "url": "https://lernerworks.com/",
+      "name": "James Lerner — Hand-built websites | LernerWorks",
+      "description": "James Lerner builds small, fast, hand-written websites: static HTML, structured data, and a real accessibility pass. No frameworks, no page builders.",
+      "isPartOf": {
+        "@id": "https://lernerworks.com/#website"
+      },
+      "about": {
+        "@id": "https://lernerworks.com/#james"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://lernerworks.com/images/og-lernerworks.png",
+        "width": 1200,
+        "height": 630
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://lernerworks.com/#work-aragocor",
+      "name": "AragoCor Minerals",
+      "url": "https://www.aragocorminerals.com/",
+      "creator": {
+        "@id": "https://lernerworks.com/#james"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://lernerworks.com/#work-niwot",
+      "name": "Town of Niwot",
+      "url": "https://townofniwot.com/",
+      "creator": {
+        "@id": "https://lernerworks.com/#james"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
