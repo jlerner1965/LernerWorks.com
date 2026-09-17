@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Headshot placeholder">
-  <rect width="800" height="1000" fill="#EFE7DC"/>
-  <circle cx="400" cy="392" r="132" fill="#D5C7B4"/>
-  <path d="M168 1000c0-150 104-256 232-256s232 106 232 256z" fill="#D5C7B4"/>
-  <text x="400" y="940" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
-        font-size="30" letter-spacing="3" fill="#8A7C69">HEADSHOT TO COME</text>
-</svg>
